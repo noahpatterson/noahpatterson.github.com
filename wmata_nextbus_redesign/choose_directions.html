@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+		<meta charset='utf-8'>
+		<!--link rel="stylesheet" type="text/css" href="css/reset.css"-->
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<title>WMATA Next Bus</title>
+	</head>
+
+	<body>
+		<h1>Search for Directions</h1>
+					<form action='choose_route.html'>
+						<input type='text' id='start-address' placeholder='Start'>
+						<input type='text' id='end-address' placeholder='End'>
+						<select>
+							<option value='arrive'>Arrive</option>
+							<option value='depart'>Depart</option>
+						</select>	
+						<input type='date' id='date'>
+						<input type='time' id='time-list' placeholder=today()>
+						<select>
+							<option value='12:00am'>12:00am</option>
+							<option value='12:30am'>12:30am</option>
+							<option value='1:00am'>1:00am</option>
+							<option value='1:30am'>1:30am</option>
+							<option value='2:00am'>2:00am</option>
+							<option value='2:30am'>2:30am</option>
+						</select>
+						<input type='submit' id='submit-directions' url="choose_route.html">
+					</form>
+	</body>
+</html>

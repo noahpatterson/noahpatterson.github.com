@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<!--link rel="stylesheet" type="text/css" href="css/reset.css"-->
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<title>WMATA Next Bus</title>
+	</head>
+
+	<body>
+		<div id='gmap'>
+			<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;ll=38.943556,-77.037721&amp;spn=0.019326,0.01296&amp;t=m&amp;z=15&amp;output=embed">
+			</iframe>
+
+		</div>
+
+		<div class='top-btn' >
+			<input type='button' class='button' id='alerts' value='Alerts..5'>
+			<input type='button' class='button' id='favorites' value='Favorties'>
+		</div>
+
+		<section id='main' class='group'>
+			<input type='button' class='button' id='expand-button' value='Expand'>
+			<input type='button' class='button' id='use-loc-btn' value='Use Location?'>
+			
+			<div id='info' class='group' >
+				<section id='directions' class='group'>
+					<iframe src="choose_directions.html" id='iframe-direction'></iframe>
+				</section>
+
+				<section id='search-routes' class='group'>
+					<h1>Search Routes</h1>
+					<form action="#">
+						<select>
+							<option>S1</option>
+							<option>S2</option>
+							<option>S3</option>
+						</select>
+						<select>
+							<option>16th and Shepard</option>
+							<option>16th and Park</option>
+							<option>16th and Euclid</option>
+						</select>
+						<input type='submit'>
+					</form>
+				</section> 
+
+				<section id='arrivals' class='group'>
+					<h1>Arrivals</h1>
+					<p>North S2<span>5min</span></p>
+					<p>North S2<span>5min</span></p>
+					<hr>
+					<h2>Other routes at this stop:</h2>
+					<p>North S2<span>5min</span></p>
+				</section>
+			</div>
+
+			<footer>
+			<nav>
+				<ul>
+					<li><a href='#'>Home</a></li>
+					<li><a href='#'>Contact Us</a></li>
+					<li><a href='#'>Help</a></li>
+				</ul>
+			</nav>
+		</footer>
+		</section>
+
+
+
+	</body>
+</html>
