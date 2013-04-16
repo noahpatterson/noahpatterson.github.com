@@ -1,0 +1,28 @@
+@import 'reset';
+
+$button-color: #777;
+
+/*clearfix*/
+.group:before,
+.group:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.group:after {
+    clear: both;
+}
+
+.button {
+	position: relative;
+	height: 30px;
+	margin: 0;
+	border: 1px;
+	box-shadow: -1px -1px 1px #888;	
+	&:hover {
+		background-color: darken($button-color, 1%);
+	}
+	&:active {
+		background-color: lighten($button-color,10%);
+	}
+}
