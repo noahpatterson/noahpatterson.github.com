@@ -75,12 +75,31 @@ table {
   clear: both; }
 
 /* line 28, ../sass/screen.scss */
+@media only screen and (max-width : 640px) {  
+    nav {   
+        height: auto;  
+    }  
+    nav ul {  
+        width: 100%;  
+        display: block;  
+        height: auto;  
+    }  
+    nav li {  
+        width: 50%;  
+        float: left;  
+        position: relative;  
+    }  
+}
+
 html, body {
-  position: relative;
   height: 100%;
   font-family: Arial, sans-serif;
-  background-color: #D2E1F0; }
-
+  background-color: #D2E1F0; 
+  min-width: 640px;}
+#container {
+    position:relative;
+    height: 100%;
+}
 /* line 35, ../sass/screen.scss */
 .button {
   position: absolute;
@@ -111,7 +130,11 @@ html, body {
   -webkit-box-shadow: 1px 1px 5px #888888;
   -moz-box-shadow: 1px 1px 5px #888888;
   box-shadow: 1px 1px 5px #888888;
-  background: linear-gradient(to right, #4a97d6 0%, #1477c9 99%);
+background-image: linear-gradient(left , #4A97D6 31%, #1477C9 72%);
+background-image: -o-linear-gradient(left , #4A97D6 31%, #1477C9 72%);
+background-image: -moz-linear-gradient(left , #4A97D6 31%, #1477C9 72%);
+background-image: -webkit-linear-gradient(left , #4A97D6 31%, #1477C9 72%);
+background-image: -ms-linear-gradient(left , #4A97D6 31%, #1477C9 72%);
   -moz-border-radius-bottomleft: 1em;
   -webkit-border-bottom-left-radius: 1em;
   border-bottom-left-radius: 1em;
@@ -122,7 +145,11 @@ html, body {
 /* line 62, ../sass/screen.scss */
 nav {
   width: 28.5em;
+  /* min-width: 640px; */
   margin: 0 auto; }
+nav li {
+    white-space: nowrap;
+}
   /* line 65, ../sass/screen.scss */
   nav ul {
     display: inline; }
@@ -157,7 +184,7 @@ nav {
 /* line 102, ../sass/screen.scss */
 #other-routes {
   position: absolute;
-  top: 370px;
+  top: 50%;
   right: 1em;
   width: 130px; }
   /* line 107, ../sass/screen.scss */
@@ -222,13 +249,14 @@ nav {
 
 /* line 169, ../sass/screen.scss */
 #stop-select {
-  position: relative;
-  bottom: 8em;
-  width: 10em; }
+  position: absolute;
+  top: 50%;
+  width: 9em; 
+  margin-left: 1em;}
   /* line 173, ../sass/screen.scss */
   #stop-select input, #stop-select header {
     display: block;
-    width: 11em;
+    width: 10em;
     margin: 0.5em auto; }
   /* line 178, ../sass/screen.scss */
   #stop-select h1 {
