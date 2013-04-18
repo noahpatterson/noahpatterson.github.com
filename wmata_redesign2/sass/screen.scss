@@ -1,10 +1,15 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
 @import 'reset';
-@import "compass";
+@import "compass/css3";
 
 $button-color: #777;
 
 * {
-	box-sizing: border-box;
+	@include box-sizing(border-box);
 }
 
 
@@ -33,8 +38,8 @@ html, body {
 	right: 3%;
 	height: 20px;
 	border: 1px;
-	box-shadow: -1px -1px 1px #888;	
-	border-radius: 2px 2px 1em;
+	@include box-shadow(-1px -1px 1px #888);	
+	@include border-radius(2px 2px 1em);
 	&:hover {
 		background-color: darken($button-color, 1%);
 	}
@@ -47,10 +52,10 @@ html, body {
 	width: 95%;
 	margin: 0 auto;
 	padding: 10px;
-	box-shadow: 1px 1px 5px #888;
+	@include box-shadow(1px 1px 5px #888);
 	background: linear-gradient(to right, #4a97d6 0%,#1477c9 99%);
-	border-bottom-left-radius: 1em;
-	border-bottom-right-radius: 1em;
+	@include border-bottom-left-radius(1em);
+	@include border-bottom-right-radius(1em);
 	// z-index: 100;
 }
 
@@ -111,8 +116,9 @@ nav {
 	position: absolute;
 	top: 60px;
 	width: 100%;
-	border: 1px solid #000;
-	animation: bus 30s;
+	//border: 1px solid #000;
+	animation: myfirst 3s;
+	-webkit-animation: myfirst 20s ease 1s 2;
 	div:last-child {
 		top: 12em;
 	}
@@ -136,13 +142,13 @@ nav {
 .street {
 	position: relative;
 	padding: 5px;
-	box-shadow: 1px 1px 5px #888;
+	@include box-shadow(1px 1px 5px #888);
 	background-color: #fff;
 
 }
 
 #other-routes, #stop-select {
-	box-shadow: 1px 1px 5px #888;
+	@include box-shadow(1px 1px 5px #888);
 	padding: 10px 0;
 	background-color: #fff;
 }
@@ -175,15 +181,28 @@ nav {
 	}
 }
 input[type=text] {
-	border-radius: 20px;
+	@include border-radius(20px);
 
 }
 
-@keyframes bus {
+@keyframes myfirst {
 	from {
 		top: 60px;
+		//background-color: none;
 	}
 	to {
-		top: 1000px;
+		top: 800px;
+		//background-color: grey;
+	}
+}
+
+@-webkit-keyframes myfirst {
+	from {
+		top: 60px;
+		//background-color: none;
+	}
+	to {
+		top: 800px;
+		//background-color: grey;
 	}
 }

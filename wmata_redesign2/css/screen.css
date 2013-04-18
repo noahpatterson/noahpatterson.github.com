@@ -1,0 +1,262 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* line 18, ../sass/_reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+/* line 28, ../sass/_reset.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+/* line 31, ../sass/_reset.scss */
+body {
+  line-height: 1; }
+
+/* line 34, ../sass/_reset.scss */
+ol, ul {
+  list-style: none; }
+
+/* line 37, ../sass/_reset.scss */
+blockquote, q {
+  quotes: none; }
+
+/* line 41, ../sass/_reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+/* line 45, ../sass/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 11, ../sass/screen.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/*clearfix*/
+/* line 19, ../sass/screen.scss */
+.group:before,
+.group:after {
+  content: " ";
+  display: table;
+  /* 2 */ }
+
+/* line 24, ../sass/screen.scss */
+.group:after {
+  clear: both; }
+
+/* line 28, ../sass/screen.scss */
+html, body {
+  position: relative;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #D2E1F0; }
+
+/* line 35, ../sass/screen.scss */
+.button {
+  position: absolute;
+  top: 1em;
+  right: 3%;
+  height: 20px;
+  border: 1px;
+  -webkit-box-shadow: -1px -1px 1px #888888;
+  -moz-box-shadow: -1px -1px 1px #888888;
+  box-shadow: -1px -1px 1px #888888;
+  -webkit-border-radius: 2px 2px 1em;
+  -moz-border-radius: 2px 2px 1em;
+  -ms-border-radius: 2px 2px 1em;
+  -o-border-radius: 2px 2px 1em;
+  border-radius: 2px 2px 1em; }
+  /* line 43, ../sass/screen.scss */
+  .button:hover {
+    background-color: #747474; }
+  /* line 46, ../sass/screen.scss */
+  .button:active {
+    background-color: #919191; }
+
+/* line 51, ../sass/screen.scss */
+#top {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+  -webkit-box-shadow: 1px 1px 5px #888888;
+  -moz-box-shadow: 1px 1px 5px #888888;
+  box-shadow: 1px 1px 5px #888888;
+  background: linear-gradient(to right, #4a97d6 0%, #1477c9 99%);
+  -moz-border-radius-bottomleft: 1em;
+  -webkit-border-bottom-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+  -moz-border-radius-bottomright: 1em;
+  -webkit-border-bottom-right-radius: 1em;
+  border-bottom-right-radius: 1em; }
+
+/* line 62, ../sass/screen.scss */
+nav {
+  width: 28.5em;
+  margin: 0 auto; }
+  /* line 65, ../sass/screen.scss */
+  nav ul {
+    display: inline; }
+    /* line 69, ../sass/screen.scss */
+    nav ul:last-child {
+      border: none; }
+  /* line 74, ../sass/screen.scss */
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 1em 1em 0.6em; }
+    /* line 78, ../sass/screen.scss */
+    nav a:hover {
+      background-color: #023769;
+      color: #cccccc; }
+
+/* line 86, ../sass/screen.scss */
+#safe-zone, #caution-zone, #danger-zone {
+  height: 60%;
+  width: 50%;
+  margin: 0 auto;
+  border-bottom: 1px solid black;
+  background-color: #c7ee82; }
+  /* line 93, ../sass/screen.scss */
+  #safe-zone header, #caution-zone header, #danger-zone header, #safe-zone div, #caution-zone div, #danger-zone div {
+    text-align: center; }
+  /* line 96, ../sass/screen.scss */
+  #safe-zone header, #caution-zone header, #danger-zone header {
+    padding: 5px 0 10px;
+    margin-top: 3px; }
+
+/* line 102, ../sass/screen.scss */
+#other-routes {
+  position: absolute;
+  top: 370px;
+  right: 1em;
+  width: 130px; }
+  /* line 107, ../sass/screen.scss */
+  #other-routes h1, #other-routes p {
+    padding: 10px; }
+  /* line 110, ../sass/screen.scss */
+  #other-routes span {
+    margin-left: 10px; }
+
+/* line 115, ../sass/screen.scss */
+#busses {
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  animation: myfirst 3s;
+  -webkit-animation: myfirst 20s ease 1s 2; }
+  /* line 122, ../sass/screen.scss */
+  #busses div:last-child {
+    top: 12em; }
+  /* line 125, ../sass/screen.scss */
+  #busses div:nth-child(3) {
+    top: 10em; }
+  /* line 128, ../sass/screen.scss */
+  #busses div:nth-child(2) {
+    top: 5em; }
+
+/* line 133, ../sass/screen.scss */
+.bus {
+  position: relative;
+  padding: 30px;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center; }
+
+/* line 142, ../sass/screen.scss */
+.street {
+  position: relative;
+  padding: 5px;
+  -webkit-box-shadow: 1px 1px 5px #888888;
+  -moz-box-shadow: 1px 1px 5px #888888;
+  box-shadow: 1px 1px 5px #888888;
+  background-color: #fff; }
+
+/* line 150, ../sass/screen.scss */
+#other-routes, #stop-select {
+  -webkit-box-shadow: 1px 1px 5px #888888;
+  -moz-box-shadow: 1px 1px 5px #888888;
+  box-shadow: 1px 1px 5px #888888;
+  padding: 10px 0;
+  background-color: #fff; }
+
+/* line 156, ../sass/screen.scss */
+#caution-zone {
+  height: 24%;
+  background-color: #ffff99;
+  z-index: 1; }
+
+/* line 163, ../sass/screen.scss */
+#danger-zone {
+  height: 10%;
+  background-color: #ff9999; }
+
+/* line 169, ../sass/screen.scss */
+#stop-select {
+  position: relative;
+  bottom: 8em;
+  width: 10em; }
+  /* line 173, ../sass/screen.scss */
+  #stop-select input, #stop-select header {
+    display: block;
+    width: 11em;
+    margin: 0.5em auto; }
+  /* line 178, ../sass/screen.scss */
+  #stop-select h1 {
+    width: 10em;
+    text-align: center; }
+
+/* line 183, ../sass/screen.scss */
+input[type=text] {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px; }
+
+@keyframes myfirst {
+  /* line 189, ../sass/screen.scss */
+  from {
+    top: 60px; }
+
+  /* line 193, ../sass/screen.scss */
+  to {
+    top: 800px; } }
+
+@-webkit-keyframes myfirst {
+  /* line 200, ../sass/screen.scss */
+  from {
+    top: 60px; }
+
+  /* line 204, ../sass/screen.scss */
+  to {
+    top: 800px; } }

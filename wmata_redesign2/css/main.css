@@ -1,0 +1,227 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* line 18, ../sass/_reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+/* line 28, ../sass/_reset.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+/* line 31, ../sass/_reset.scss */
+body {
+  line-height: 1; }
+
+/* line 34, ../sass/_reset.scss */
+ol, ul {
+  list-style: none; }
+
+/* line 37, ../sass/_reset.scss */
+blockquote, q {
+  quotes: none; }
+
+/* line 41, ../sass/_reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+/* line 45, ../sass/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 5, ../sass/main.scss */
+* {
+  box-sizing: border-box; }
+
+/*clearfix*/
+/* line 13, ../sass/main.scss */
+.group:before,
+.group:after {
+  content: " ";
+  display: table;
+  /* 2 */ }
+
+/* line 18, ../sass/main.scss */
+.group:after {
+  clear: both; }
+
+/* line 22, ../sass/main.scss */
+html, body {
+  position: relative;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #D2E1F0; }
+
+/* line 29, ../sass/main.scss */
+.button {
+  position: absolute;
+  top: 1em;
+  right: 3%;
+  height: 20px;
+  border: 1px;
+  box-shadow: -1px -1px 1px #888888;
+  border-radius: 2px 2px 1em; }
+  /* line 37, ../sass/main.scss */
+  .button:hover {
+    background-color: #747474; }
+  /* line 40, ../sass/main.scss */
+  .button:active {
+    background-color: #919191; }
+
+/* line 45, ../sass/main.scss */
+#top {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+  box-shadow: 1px 1px 5px #888888;
+  background: linear-gradient(to right, #4a97d6 0%, #1477c9 99%);
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em; }
+
+/* line 56, ../sass/main.scss */
+nav {
+  width: 28.5em;
+  margin: 0 auto; }
+  /* line 59, ../sass/main.scss */
+  nav ul {
+    display: inline; }
+    /* line 63, ../sass/main.scss */
+    nav ul:last-child {
+      border: none; }
+  /* line 68, ../sass/main.scss */
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 1em 1em 0.6em; }
+    /* line 72, ../sass/main.scss */
+    nav a:hover {
+      background-color: #023769;
+      color: #cccccc; }
+
+/* line 80, ../sass/main.scss */
+#safe-zone, #caution-zone, #danger-zone {
+  height: 60%;
+  width: 50%;
+  margin: 0 auto;
+  border-bottom: 1px solid black;
+  background-color: #c7ee82; }
+  /* line 87, ../sass/main.scss */
+  #safe-zone header, #caution-zone header, #danger-zone header, #safe-zone div, #caution-zone div, #danger-zone div {
+    text-align: center; }
+  /* line 90, ../sass/main.scss */
+  #safe-zone header, #caution-zone header, #danger-zone header {
+    padding: 5px 0 10px;
+    margin-top: 3px; }
+
+/* line 96, ../sass/main.scss */
+#other-routes {
+  position: absolute;
+  top: 370px;
+  right: 1em;
+  width: 130px; }
+  /* line 101, ../sass/main.scss */
+  #other-routes h1, #other-routes p {
+    padding: 10px; }
+  /* line 104, ../sass/main.scss */
+  #other-routes span {
+    margin-left: 10px; }
+
+/* line 109, ../sass/main.scss */
+#busses {
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  border: 1px solid black;
+  animation: bus 30s; }
+  /* line 115, ../sass/main.scss */
+  #busses div:last-child {
+    top: 12em; }
+  /* line 118, ../sass/main.scss */
+  #busses div:nth-child(3) {
+    top: 10em; }
+  /* line 121, ../sass/main.scss */
+  #busses div:nth-child(2) {
+    top: 5em; }
+
+/* line 126, ../sass/main.scss */
+.bus {
+  position: relative;
+  padding: 30px;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center; }
+
+/* line 135, ../sass/main.scss */
+.street {
+  position: relative;
+  padding: 5px;
+  box-shadow: 1px 1px 5px #888888;
+  background-color: #fff; }
+
+/* line 143, ../sass/main.scss */
+#other-routes, #stop-select {
+  box-shadow: 1px 1px 5px #888888;
+  padding: 10px 0;
+  background-color: #fff; }
+
+/* line 149, ../sass/main.scss */
+#caution-zone {
+  height: 24%;
+  background-color: #ffff99;
+  z-index: 1; }
+
+/* line 156, ../sass/main.scss */
+#danger-zone {
+  height: 10%;
+  background-color: #ff9999; }
+
+/* line 162, ../sass/main.scss */
+#stop-select {
+  position: relative;
+  bottom: 8em;
+  width: 10em; }
+  /* line 166, ../sass/main.scss */
+  #stop-select input, #stop-select header {
+    display: block;
+    width: 11em;
+    margin: 0.5em auto; }
+  /* line 171, ../sass/main.scss */
+  #stop-select h1 {
+    width: 10em;
+    text-align: center; }
+
+/* line 176, ../sass/main.scss */
+input[type=text] {
+  border-radius: 20px; }
+
+@keyframes bus {
+  /* line 182, ../sass/main.scss */
+  from {
+    top: 60px; }
+
+  /* line 185, ../sass/main.scss */
+  to {
+    top: 1000px; } }
