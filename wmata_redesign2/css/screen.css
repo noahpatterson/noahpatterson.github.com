@@ -212,8 +212,7 @@ nav {
 /* line 156, ../sass/screen.scss */
 #caution-zone {
   height: 24%;
-  background-color: #ffff99;
-  z-index: 1; }
+  background-color: #ffff99; }
 
 /* line 163, ../sass/screen.scss */
 #danger-zone {
@@ -222,8 +221,6 @@ nav {
 
 /* line 169, ../sass/screen.scss */
 #stop-select {
-  position: relative;
-  bottom: 8em;
   width: 10em; }
   /* line 173, ../sass/screen.scss */
   #stop-select input, #stop-select header {

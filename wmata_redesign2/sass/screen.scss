@@ -157,7 +157,7 @@ nav {
 	@extend #safe-zone;
 	height: 24%;
 	background-color: lighten(yellow, 30%);
-	z-index: 1;
+	// z-index: 1;
 }
 
 #danger-zone {
@@ -167,8 +167,8 @@ nav {
 }
 
 #stop-select {
-	position: relative;
-	bottom: 8em;
+	// position: relative;
+	// bottom: 8em;
 	width: 10em;
 	input, header {
 		display: block;
