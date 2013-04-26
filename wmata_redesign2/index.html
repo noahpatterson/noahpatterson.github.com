@@ -7,7 +7,8 @@
 		<title>WMATA Next Bus</title>
 	</head>
 
-	<body>
+<body>
+    <div id='container'>
 		<header id='top'>
 			<nav >
 				<ul><a href="/" alt="Home">Home</a></ul>
@@ -22,9 +23,9 @@
 
 		<section id='safe-zone' >
 			<header>
-				<h1>Upcoming Busses</h1>
+				<h1>Upcoming Buses</h1>
 			</header>
-			
+
 		</section>
 
 		<div id='busses'>
@@ -51,7 +52,7 @@
 				<h1>Alternate Routes</h1>
 				<p>S9<span>...</span><span>10 min</span></p>
 				<p>S9<span>...</span><span>10 min</span></p>
-				<p>* on click populates route into 'Upcoming Busses'</p>
+				<p>* on click populates route into 'Upcoming Buses'</p>
 			</header>
 		</section>
 
@@ -67,7 +68,16 @@
 		</div>
 		<div id='danger-zone'></div>
 		<div id='location-marker'></div>
-		
-		
+
+		<section id='stop-select'>
+			<header>
+				<h1>Stop Selector</h1>
+			</header>
+
+			<input type='search' id='search-route' value='Search for Route'>
+			<input type='text' id='search-stop' placeholder='16th and Shepherd St.'>
+		</section>
+            </div>
+
 	</body>
 </html>
