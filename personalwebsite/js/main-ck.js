@@ -1,0 +1,1 @@
+$("#project-move").on("click",function(){$(this).toggleClass("project-move-slide")});$("#project-description").on("click",function(){$("#project-move").toggleClass("project-move-slide")});

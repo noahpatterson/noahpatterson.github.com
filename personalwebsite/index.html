@@ -42,19 +42,26 @@
 
 <body class='group'>
 
-	
-
-
-
 	<div id='contact-bar' class='group column'>
-		<a href='#' id='contact-link'>Contact Me</a>
+		
+		<section id='contact-drop'>
+			<a href='#' id='contact-link'>Contact Me</a>
+
+			<form action="MAILTO: noah@noah-patterson.com" method="post" enctype="text/plain">
+				<input type='name' placeholder='Name'>
+				<input type='email' placeholder='Email'>
+				<input type='textarea' placeholder='Let me know what I can do for you.'>
+				<input type='submit' value='Submit'>
+			</form>
+		</section>
+
 
 		<!-- <section id='home'>
 			<header class='section-header'>
 			<h1>noahpatterson</h1>
 			<h2>Coder.Explorer.Learner.</h2>
 		</header> -->
-		</section>
+		<!-- </section> -->
 <!-- 		<section id='img-carousel-holder'>
 						<img src="img/wmataredesigncomments1_smaller.png"  width='1046' height='516' class='port-img' >
 					
@@ -74,13 +81,14 @@
 			<div id='img-carousel-holder'>
 						<div id='project-slider'>
 							<div id='project-move'>
-							<img src="img/wmataredesigncomments1.png"  width='1046' height='516' class='port-img' >
+								<img src="img/wmataredesigncomments1.png"  width='1046' height='516' class='port-img' >
 							</div>
+							
 							<div id='project-description'>
-							<h3>WMATA Nextbus Bus Tracker Redesign</h3>
-							<p>In this project I imagined and protyped how the DC bus tracker website could be improved.The buses in this protopye move through different zones on the page which indicate at a quick glance how long you have to get to the bus. Green signifies you have plenty of time, yellow signifies you should leave to catch the bus and red signifies you will likely miss the bus.</p>
-						</div>	
-							</div>
+								<h3>WMATA Nextbus Bus Tracker Redesign</h3>
+								<p>In this project I imagined and protyped how the DC bus tracker website could be improved.The buses in this protopye move through different zones on the page which indicate at a quick glance how long you have to get to the bus. Green signifies you have plenty of time, yellow signifies you should leave to catch the bus and red signifies you will likely miss the bus.</p>
+							</div>	
+						</div>
 						
 
 						
@@ -166,6 +174,7 @@
 	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
+	<script src="js/main.js"></script>
 
 	<!--[if (lt IE 9) & (!IEMobile)]>
 	<script src="js/selectivizr-min.js"></script>
