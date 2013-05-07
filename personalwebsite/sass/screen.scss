@@ -146,7 +146,6 @@ a {
 	input[type='textarea'] {
 		width: 300px;
 		height: 200px;
-		line-height: 130%;
 	}
 
 
@@ -432,7 +431,7 @@ a {
 // 	margin: 0 auto;
 // }
 
-#project-description {
+.project-description {
 	position: absolute;
 	width: 600px;
 	 left: 20px;
@@ -495,5 +494,13 @@ a {
 	border: solid 3px #fff;
 	overflow:hidden;
 }
+
+//project_carousel_js_css
+
+.hide {
+	display: none;
+}
+
+
 
 
