@@ -44,16 +44,18 @@
 
 	<div id='contact-bar' class='group column'>
 		
-		<section id='contact-drop'>
-			<a href='#' id='contact-link'>Contact Me</a>
+		<div id='contact-drop-wrapper'>
+			<section id='contact-drop'>
+				<button  id='contact-link'>Contact Me</button>
 
-			<form action="MAILTO: noah@noah-patterson.com" method="post" enctype="text/plain">
-				<input type='name' placeholder='Name'>
-				<input type='email' placeholder='Email'>
-				<input type='textarea' placeholder='Let me know what I can do for you.'>
-				<input type='submit' value='Submit'>
-			</form>
-		</section>
+				<form action="mailto:noah@noah-patterson.com" method="post" enctype="text/html" id='contact-form'>
+					<input type='name' placeholder='Name'>
+					<input type='email' placeholder='Email'>
+					<input type='textarea' placeholder='Let me know what I can do for you.'>
+					<button id='submit-button' type='submit'>Submit Email</button>
+				</form>
+			</section>
+		</div>
 
 
 		<!-- <section id='home'>
@@ -151,8 +153,9 @@
 					
 					<li><a href="#portfolio">Portfolio</a></li>
 					<li><a href="#nav-point-about">About Me</a></li>
-					<li><a href="http://blog.albino-squirrel.com">Blog</a></li>
-					<li><a href="#contact-link">Contact Me</a></li>
+					<li><a href="http://blog.albino-squirrel.com" target='_blank'>Blog</a></li>
+					<!-- <li><a href="" >Contact Me</a></li> -->
+					<button id='nav-contact-link'>Contact Me</button>
 				</ul>
 			</nav>
 		</section>
