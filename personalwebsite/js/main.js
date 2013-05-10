@@ -37,3 +37,26 @@ $('#nav-contact-link').on('click', function(){
 	var contact_drop = $('#contact-drop');
 	toggle_form(contact_drop);
 	});
+
+//animate scroll
+$('#portfolio-scroll').on('click', function(){
+	var port_pos = Math.floor($('#portfolio').offset().top);
+	var current_pos_html = document.getElementsByTagName("html")[0].scrollTop;
+	var current_pos_body = document.getElementsByTagName("body")[0].scrollTop;
+	if ((current_pos_body !== port_pos && current_pos_html === 0 ) || (current_pos_html !== port_pos && current_pos_body === 0)) {
+			$('html,body').animate({scrollTop: $('#portfolio').offset().top}, 1000);
+		}
+});
+
+$('#about-scroll').on('click', function(){
+	var  abt_pos = Math.floor($('#about').offset().top);
+	var current_pos_html = document.getElementsByTagName("html")[0].scrollTop;
+	var current_pos_body = document.getElementsByTagName("body")[0].scrollTop;
+	if ((current_pos_body !== abt_pos &&current_pos_html === 0 ) || (current_pos_html !== abt_pos && current_pos_body === 0)) {
+
+		// alert("html pos " +current_pos_html);
+		// alert("body pos " +current_pos_body);
+		$('html,body').animate({scrollTop: $('#about').offset().top}, 1000);
+	}
+	
+});

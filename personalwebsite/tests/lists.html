@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<style>
+			ul li{
+				
+				background: url('http://learn.shayhowe.com/assets/courses/html-css-guide/unordered-ordered-definition-lists/tick-1e4786debf4a70ea6a2f1072d4d59e40.png') 0 0 no-repeat;
+				list-style: none;
+
+
+				
+
+			}
+			ul{
+				padding-left: 0;
+			}
+
+			li {
+				margin-bottom: 5px;
+				display: list-item;
+				padding: 0 0 0 24px;
+			}
+
+			#names li {
+				list-style: none;
+			}
+
+			#names li:before {
+				content: "\2708";
+				margin-right: 6px;
+			}
+
+			#numbers li {
+				float: left;
+				margin: 0 20px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<p>stuff</p>
+		<ol start="30" reversed>
+			<li>test</li>
+			<li value='1'>hi</li>
+		</ol>
+
+		<ul>
+			<li>minna</li>
+			<li>navi</li>
+		</ul>
+
+		<ul id='names'>
+			<li>anjali</li>
+			<li>noah</li>
+		</ul>
+
+		<dl>
+			<dt>Cat</dt>
+			<dd>Minna</dd>
+		</dl>
+
+		<ul id='numbers'>
+			<li>one</li>
+			<li>two</li>
+		</ul>
+	</body>
+</html>
