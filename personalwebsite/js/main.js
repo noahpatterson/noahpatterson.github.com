@@ -104,11 +104,15 @@ $('#about-scroll').on('click', function(){
 var regions = [];
 
 
-
-regions.push(port_pos); 
+var scr_top_init = $(window).scrollTop();
+regions.push(port_pos);
 regions.push(abt_pos-400);
-console.log(regions[1]);
-
+console.log(regions[0]);
+if (scr_top_init <= abt_pos) {
+	$('#portfolio-scroll').addClass('highlight');
+} else if (scr_top >= abt_pos) {
+	$('#about-scroll').addClass('highlight');
+}
 
 $(window).scroll(function() {
 	console.log('scrolled');
