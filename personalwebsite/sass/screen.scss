@@ -33,6 +33,7 @@ html, body {
 
 // global styles
 $color: hsla(159,15.25,70.5,1);
+$bg-color:hsl(49,84.18,68.4);
 a,p, li {
 	color: $color;
 }
@@ -249,8 +250,10 @@ a {
 	li, #nav-contact-link {
 		padding: 5px;
 		letter-spacing: 1px;
-		text-shadow: 1px 1px 2px #000;
+		// text-shadow: 1px 1px 2px #000;
 		cursor: pointer;
+		@include transition(text-shadow 1s ease-in-out);
+
 	}
 
 	header {
@@ -260,6 +263,11 @@ a {
 		}
 	}
 }
+
+.highlight {
+	text-shadow: 0 0 10px $bg-color, 0 0 20px $bg-color, 0 0 30px $bg-color, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #fff, 0 0 100px #fff, 0 0 150px #fff;
+}
+
 
 // #nav-contact-link {
 // 	font-size: 100%;
@@ -314,8 +322,8 @@ a {
 	width: 200px;
 	// border: solid 1px #000;
 	float: left;
-	padding: 10px;
-	margin: 10px;
+	padding: 5px;
+	margin: 5px;
 	ul {
 		list-style: none;
 	}
