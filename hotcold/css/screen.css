@@ -1,0 +1,229 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 13, ../sass/screen.scss */
+body {
+  font-family: "Oxygen", sans-serif;
+  background-color: #b8ebf4; }
+
+/* line 18, ../sass/screen.scss */
+header {
+  text-align: center;
+  width: 100%;
+  font-size: 2em; }
+  /* line 23, ../sass/screen.scss */
+  header div {
+    height: 3em !important;
+    background-color: #f98c81 !important;
+    padding: 0.5em !important;
+    margin: 0 !important; }
+
+/* line 32, ../sass/screen.scss */
+#title-hot {
+  font-family: "Chewy", cursive; }
+
+/* line 36, ../sass/screen.scss */
+#title-cold {
+  font-family: "The Girl Next Door", cursive; }
+
+/* line 41, ../sass/screen.scss */
+#instructions {
+  line-height: 1.75em;
+  letter-spacing: 1px; }
+
+/* line 46, ../sass/screen.scss */
+.hot-word {
+  background-color: #F43420;
+  color: #fff;
+  border-radius: 3px; }
+
+/* line 52, ../sass/screen.scss */
+.cold-word {
+  background-color: #178296;
+  color: #fff;
+  border-radius: 3px; }
+
+/* line 58, ../sass/screen.scss */
+#guess-section {
+  padding-top: 2em; }
+
+/* line 62, ../sass/screen.scss */
+#slider-container {
+  position: relative;
+  margin: -1em auto;
+  vertical-align: middle; }
+  /* line 70, ../sass/screen.scss */
+  #slider-container p {
+    text-align: center; }
+
+/* line 76, ../sass/screen.scss */
+#cold, #the-guess, #hot {
+  margin: 0;
+  padding: 0; }
+
+/* line 83, ../sass/screen.scss */
+#the-guess {
+  position: relative;
+  width: 3em;
+  margin: 0 auto;
+  line-height: 2.5em; }
+
+/* line 92, ../sass/screen.scss */
+.valign {
+  display: inline-block;
+  margin-left: .9em; }
+  /* line 95, ../sass/screen.scss */
+  .valign P {
+    margin: 0; }
+
+/* line 102, ../sass/screen.scss */
+#cold {
+  position: absolute;
+  width: 30em;
+  left: 3em;
+  background-color: #178296; }
+
+/* line 110, ../sass/screen.scss */
+#hot {
+  position: absolute;
+  width: 30em;
+  right: 3em;
+  background-color: #F43420; }
+
+/* line 119, ../sass/screen.scss */
+.slider {
+  -webkit-transition: width 2s;
+  -moz-transition: width 2s;
+  -o-transition: width 2s;
+  transition: width 2s;
+  height: 100%; }
+
+/* line 124, ../sass/screen.scss */
+#guess-alert {
+  display: none; }
+
+@-webkit-keyframes roll {
+  /* line 129, ../sass/screen.scss */
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  /* line 130, ../sass/screen.scss */
+  to {
+    -webkit-transform: rotate(360deg); } }
+
+@-moz-keyframes roll {
+  /* line 134, ../sass/screen.scss */
+  from {
+    -moz-transform: rotate(0deg); }
+
+  /* line 135, ../sass/screen.scss */
+  to {
+    -moz-transform: rotate(360deg); } }
+
+@keyframes roll {
+  /* line 139, ../sass/screen.scss */
+  from {
+    transform: rotate(0deg); }
+
+  /* line 140, ../sass/screen.scss */
+  to {
+    transform: rotate(360deg); } }
+
+/* line 143, ../sass/screen.scss */
+.roll {
+  -moz-animation-name: roll;
+  -moz-animation-duration: 4s;
+  -moz-animation-iteration-count: 1;
+  -webkit-animation-name: roll;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-iteration-count: 1; }
+
+/* line 152, ../sass/screen.scss */
+.reveal-modal-bg {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: black;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 98;
+  display: none;
+  top: 0;
+  left: 0; }
+
+/* line 163, ../sass/screen.scss */
+.reveal-modal {
+  visibility: hidden;
+  display: none;
+  position: absolute;
+  left: 50%;
+  z-index: 99;
+  height: auto;
+  background-color: #fff;
+  margin-left: -40%;
+  width: 80%;
+  background-color: white;
+  padding: 1.25em;
+  border: solid 1px #666666;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  top: 50px; }
+
+/* line 180, ../sass/screen.scss */
+.reveal-modal .column,
+.reveal-modal .columns {
+  min-width: 0; }
+
+/* line 182, ../sass/screen.scss */
+.reveal-modal > :first-child {
+  margin-top: 0; }
+
+/* line 184, ../sass/screen.scss */
+.reveal-modal > :last-child {
+  margin-bottom: 0; }
+
+/* line 186, ../sass/screen.scss */
+.reveal-modal .close-reveal-modal {
+  font-size: 1.375em;
+  line-height: 1;
+  position: absolute;
+  top: 0.5em;
+  right: 0.6875em;
+  color: #aaaaaa;
+  font-weight: bold;
+  cursor: pointer; }
+
+@media only screen and (min-width: 48em) {
+  /* line 197, ../sass/screen.scss */
+  .reveal-modal {
+    padding: 1.875em;
+    top: 6.25em; }
+
+  /* line 200, ../sass/screen.scss */
+  .reveal-modal.tiny {
+    margin-left: -15%;
+    width: 30%; }
+
+  /* line 203, ../sass/screen.scss */
+  .reveal-modal.small {
+    margin-left: -20%;
+    width: 40%; }
+
+  /* line 206, ../sass/screen.scss */
+  .reveal-modal.medium {
+    margin-left: -30%;
+    width: 60%; }
+
+  /* line 209, ../sass/screen.scss */
+  .reveal-modal.large {
+    margin-left: -35%;
+    width: 70%; }
+
+  /* line 212, ../sass/screen.scss */
+  .reveal-modal.xlarge {
+    margin-left: -47.5%;
+    width: 95%; } }
+@media print {
+  /* line 216, ../sass/screen.scss */
+  .reveal-modal {
+    background: white !important; } }

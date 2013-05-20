@@ -1,0 +1,217 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+@import "compass/css3";
+
+$border: 1px solid #000;
+
+
+
+
+
+body {
+	font-family: 'Oxygen', sans-serif;
+	background-color: lighten(#178296, 50%);
+}
+
+header {
+	text-align:center;
+	width: 100%;
+
+	font-size: 2em;
+		div {
+			height: 3em !important;
+			background-color: lighten(#F43420, 20%) !important;
+
+			padding: .5em !important;
+			margin: 0 !important;
+	}
+}
+
+#title-hot {
+	font-family: 'Chewy', cursive;
+}
+
+#title-cold {
+	font-family: 'The Girl Next Door', cursive;
+}
+
+
+#instructions {
+	line-height: 1.75em;
+	letter-spacing: 1px;
+}
+
+.hot-word {
+	background-color: #F43420;
+	color: #fff;
+	border-radius: 3px;
+}
+
+.cold-word {
+	background-color: #178296;
+	color: #fff;
+	border-radius: 3px;
+}
+
+#guess-section {
+	padding-top: 2em;
+}
+
+#slider-container {
+	position: relative;
+	margin: -1em auto;
+	// height: 4em;
+	// padding: 0;
+	// display: inline-block;
+	vertical-align: middle;
+	// border: $border; 
+	p {
+		text-align: center;
+	}
+	
+}
+
+#cold, #the-guess, #hot {
+	margin: 0;
+	padding: 0;
+	// float: left;
+	// height: 3em;
+
+}
+#the-guess {
+	// display: inline-block;
+	position: relative;
+	width: 3em;
+	margin: 0 auto;
+	line-height: 2.5em;
+	// border: $border; 
+}	
+
+.valign {
+	display: inline-block;
+	margin-left: .9em;
+	P {
+		margin: 0;
+	}
+}
+
+
+
+#cold{
+	// margin: 0;
+	position: absolute;
+	width:30em;
+	left:3em;
+	background-color: #178296;
+}
+
+#hot {
+	// margin: 0;
+	position: absolute;
+	width: 30em;
+	right: 3em;
+	background-color: #F43420;
+	
+}
+
+.slider {
+	// border: $border; 
+	@include transition(width 2s);
+	height: 100%;
+}
+#guess-alert {
+	display: none;
+}
+
+@-webkit-keyframes roll {
+    from { -webkit-transform: rotate(0deg) }
+    to   { -webkit-transform: rotate(360deg) }
+}
+
+@-moz-keyframes roll {
+    from { -moz-transform: rotate(0deg) }
+    to   { -moz-transform: rotate(360deg) }
+}
+
+@keyframes roll {
+    from { transform: rotate(0deg) }
+    to   { transform: rotate(360deg) }
+}
+
+.roll {
+    -moz-animation-name: roll;
+    -moz-animation-duration: 4s;
+    -moz-animation-iteration-count: 1;
+    -webkit-animation-name: roll;
+    -webkit-animation-duration: 4s;
+    -webkit-animation-iteration-count: 1;
+}
+
+.reveal-modal-bg {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: black;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 98;
+  display: none;
+  top: 0;
+  left: 0; }
+
+.reveal-modal {
+  visibility: hidden;
+  display: none;
+  position: absolute;
+  left: 50%;
+  z-index: 99;
+  height: auto;
+  background-color: #fff;
+  margin-left: -40%;
+  width: 80%;
+  background-color: white;
+  padding: 1.25em;
+  border: solid 1px #666666;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  top: 50px; }
+  .reveal-modal .column,
+  .reveal-modal .columns {
+    min-width: 0; }
+  .reveal-modal > :first-child {
+    margin-top: 0; }
+  .reveal-modal > :last-child {
+    margin-bottom: 0; }
+  .reveal-modal .close-reveal-modal {
+    font-size: 1.375em;
+    line-height: 1;
+    position: absolute;
+    top: 0.5em;
+    right: 0.6875em;
+    color: #aaaaaa;
+    font-weight: bold;
+    cursor: pointer; }
+
+@media only screen and (min-width: 48em) {
+  .reveal-modal {
+    padding: 1.875em;
+    top: 6.25em; }
+    .reveal-modal.tiny {
+      margin-left: -15%;
+      width: 30%; }
+    .reveal-modal.small {
+      margin-left: -20%;
+      width: 40%; }
+    .reveal-modal.medium {
+      margin-left: -30%;
+      width: 60%; }
+    .reveal-modal.large {
+      margin-left: -35%;
+      width: 70%; }
+    .reveal-modal.xlarge {
+      margin-left: -47.5%;
+      width: 95%; } }
+@media print {
+  .reveal-modal {
+    background: white !important; } }
