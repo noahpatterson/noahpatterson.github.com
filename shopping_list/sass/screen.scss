@@ -1,0 +1,161 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+// @import "compass/reset";
+@import "compass/css3";
+
+
+
+//clearfix
+.group:before, .group:after {
+    content: " ";
+    display: table; }
+  .group:after {
+    clear: both; }
+
+//--layout--
+#add-new-item {
+	position: relative;
+	margin-top: 2em;
+
+	
+}
+
+#new-item-form{
+	input{
+		margin-top: 1em;	
+	}
+}
+
+#list-section1 {
+	margin-top: 2em;
+}
+.list {
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+.panel {
+	border: solid 1px #000;
+	background-color: #999;
+}
+
+
+//--item styles--
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #000;
+}
+input:-moz-placeholder, textarea:-moz-placeholder  {
+  color: #000;
+}
+input::-moz-placeholder , textarea::-moz-placeholder {
+  color: #000;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: #000;
+}
+
+$box-shadow-color: #000;
+input, #add-new-button, textarea  {
+	width: 80%;
+  	margin-bottom: 1em;
+  	font-size: 1em;
+  	padding: .3em;
+}
+
+#add-new-button, #title-new, #notes-new {
+	display: block;
+	margin:0 auto 1em;
+}
+
+#add-new-button {
+
+	position: relative;
+	background-color: #bbb;
+	text-align: center;
+	@include box-shadow(2px 2px 1px 1px $box-shadow-color, 3px 3px 1px 1px lighten($box-shadow-color,10%),5px 5px 1px 1px lighten($box-shadow-color,20%),7px 7px 1px 1px lighten($box-shadow-color,30%) );
+	&:active {
+		top: 1px;
+		right: 1px;
+		@include box-shadow(2px 2px 1px 1px $box-shadow-color,3px 3px 1px 1px lighten($box-shadow-color,10%));
+	}
+}
+textarea {
+	height: 8em;
+	resize: none;
+}
+
+.item {
+	position: inherit;
+	padding: 0.5em;
+	height: 2.9em;
+	min-height: 2.9em;
+	cursor: pointer;
+	@include transition(height 1s ease-in-out);
+  	overflow-y: hidden;
+  input, textarea {
+  	width: 80%;
+  	margin-bottom: 1em;
+  	font-size: 1em;
+  	color: #000;
+  	background-color: #999;
+  	border: none;
+  	padding: .3em;
+  	&:focus {
+  		background-color: #fff;
+  	}
+  }
+}
+
+//date added
+#enter-date {
+	margin: 0;
+}
+
+
+svg {
+	position: absolute;
+	top: .7em;
+	right: .5em;
+}
+
+.check-icon {
+	position: absolute;
+	top: .7em;
+	right: 2.25em;
+	img {
+		height: 20px;
+		width: 20px;
+	}
+}
+
+.close-icon {
+	position: absolute;
+	top: .7sem;
+	right: 4em;
+	
+	 // padding: 1em;
+	img {
+		height: 17px;
+		width: 17px;
+	}
+
+}
+
+.item-completed {
+	text-decoration: line-through;
+}
+
+.expand-list {
+	@include transition(height 1s ease-in-out);
+	// min-height: 12em;
+	// height: auto;
+	height: 14em;
+}
+
+// #list-section1 div:last-child {
+// 	background-color: red;
+// }
+

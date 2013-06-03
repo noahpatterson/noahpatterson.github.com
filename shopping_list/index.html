@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Shopping List</title>
+
+  
+  <link rel="stylesheet" href="css/foundation.css" />
+  <link rel="stylesheet" type="text/css" href="css/screen.css">
+
+</head>
+<body>
+
+	<header class="row">
+		<div class="large-12 columns panel">
+			<h1>Shopping List</h1>
+		</div>
+	</header>
+
+	<section class='row' id='add-new-item'>
+		<form class='columns panel large-5 large-centered' id='new-item-form'>
+			<input type='text' class='large-10' id='title-new' placeholder='Title'>
+			<textarea class='large-10'  id='notes-new' placeholder='Notes'></textarea>
+			<!-- <input type='textarea' class='large-10'  id='notes-new' placeholder='Notes'>
+			 -->
+			 <div  id='add-new-button'>Add new list item</div>
+		</form>
+	</section>
+
+	<section id='list-section1' class='row list sortable large-5'>
+	</section>
+
+	
+
+
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery-ui-1.10.3.custom.js"></script>
+  <script src='js/app.js'></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 12, ../sass/screen.scss */
+.group:before, .group:after {
+  content: " ";
+  display: table; }
+
+/* line 15, ../sass/screen.scss */
+.group:after {
+  clear: both; }
+
+/* line 19, ../sass/screen.scss */
+#add-new-item {
+  position: relative;
+  margin-top: 2em; }
+
+/* line 27, ../sass/screen.scss */
+#new-item-form input {
+  margin-top: 1em; }
+
+/* line 32, ../sass/screen.scss */
+#list-section1 {
+  margin-top: 2em; }
+
+/* line 35, ../sass/screen.scss */
+.list {
+  margin-top: 2em;
+  margin-bottom: 2em; }
+
+/* line 40, ../sass/screen.scss */
+.panel {
+  border: solid 1px black;
+  background-color: #999; }
+
+/* line 47, ../sass/screen.scss */
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #000; }
+
+/* line 50, ../sass/screen.scss */
+input:-moz-placeholder, textarea:-moz-placeholder {
+  color: #000; }
+
+/* line 53, ../sass/screen.scss */
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: #000; }
+
+/* line 56, ../sass/screen.scss */
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: #000; }
+
+/* line 61, ../sass/screen.scss */
+input, #add-new-button, textarea {
+  width: 80%;
+  margin-bottom: 1em;
+  font-size: 1em;
+  padding: .3em; }
+
+/* line 68, ../sass/screen.scss */
+#add-new-button, #title-new, #notes-new {
+  display: block;
+  margin: 0 auto 1em; }
+
+/* line 73, ../sass/screen.scss */
+#add-new-button {
+  position: relative;
+  background-color: #bbb;
+  text-align: center;
+  -webkit-box-shadow: 2px 2px 1px 1px black, 3px 3px 1px 1px #1a1a1a, 5px 5px 1px 1px #333333, 7px 7px 1px 1px #4d4d4d;
+  -moz-box-shadow: 2px 2px 1px 1px black, 3px 3px 1px 1px #1a1a1a, 5px 5px 1px 1px #333333, 7px 7px 1px 1px #4d4d4d;
+  box-shadow: 2px 2px 1px 1px black, 3px 3px 1px 1px #1a1a1a, 5px 5px 1px 1px #333333, 7px 7px 1px 1px #4d4d4d; }
+  /* line 79, ../sass/screen.scss */
+  #add-new-button:active {
+    top: 1px;
+    right: 1px;
+    -webkit-box-shadow: 2px 2px 1px 1px black, 3px 3px 1px 1px #1a1a1a;
+    -moz-box-shadow: 2px 2px 1px 1px black, 3px 3px 1px 1px #1a1a1a;
+    box-shadow: 2px 2px 1px 1px black, 3px 3px 1px 1px #1a1a1a; }
+
+/* line 85, ../sass/screen.scss */
+textarea {
+  height: 8em;
+  resize: none; }
+
+/* line 90, ../sass/screen.scss */
+.item {
+  position: inherit;
+  padding: 0.5em;
+  height: 2.9em;
+  min-height: 2.9em;
+  cursor: pointer;
+  -webkit-transition: height 1s ease-in-out;
+  -moz-transition: height 1s ease-in-out;
+  -o-transition: height 1s ease-in-out;
+  transition: height 1s ease-in-out;
+  overflow-y: hidden; }
+  /* line 98, ../sass/screen.scss */
+  .item input, .item textarea {
+    width: 80%;
+    margin-bottom: 1em;
+    font-size: 1em;
+    color: #000;
+    background-color: #999;
+    border: none;
+    padding: .3em; }
+    /* line 106, ../sass/screen.scss */
+    .item input:focus, .item textarea:focus {
+      background-color: #fff; }
+
+/* line 113, ../sass/screen.scss */
+#enter-date {
+  margin: 0; }
+
+/* line 118, ../sass/screen.scss */
+svg {
+  position: absolute;
+  top: .7em;
+  right: .5em; }
+
+/* line 124, ../sass/screen.scss */
+.check-icon {
+  position: absolute;
+  top: .7em;
+  right: 2.25em; }
+  /* line 128, ../sass/screen.scss */
+  .check-icon img {
+    height: 20px;
+    width: 20px; }
+
+/* line 134, ../sass/screen.scss */
+.close-icon {
+  position: absolute;
+  top: .7sem;
+  right: 4em; }
+  /* line 140, ../sass/screen.scss */
+  .close-icon img {
+    height: 17px;
+    width: 17px; }
+
+/* line 147, ../sass/screen.scss */
+.item-completed {
+  text-decoration: line-through; }
+
+/* line 151, ../sass/screen.scss */
+.expand-list {
+  -webkit-transition: height 1s ease-in-out;
+  -moz-transition: height 1s ease-in-out;
+  -o-transition: height 1s ease-in-out;
+  transition: height 1s ease-in-out;
+  height: 14em; }
