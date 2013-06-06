@@ -8,12 +8,25 @@ function escapeHtml(text) {
       .replace(/'/g, "&#039;");
 }
 
+//set maxlength of title input based on input width
+var title_width = $('input[type=text]').width();
+console.log(title_width);
+
+
+
 //expand list item
 $('#list-section1').on('click','div', function(e) {
-	if (e.target != this){return;}
+	var $target = $(e.target);
+	//console.log(e.target.nodeName);
+	if ($target.is('img'))
+		{return;}
 	console.log('clicked');
-	$('.expand-list').removeClass('expand-list');
-	$(this).addClass('expand-list');
+	//$('.expand-list').removeClass('expand-list');
+	//$(this).addClass('expand-list');
+	$(this).toggleClass('expand-list');
+	//$('.expand-list').toggleClass('expand-list')
+	//if ()
+	//	$(this).toggleClass('expand-list');
 });
 
 //date-added
