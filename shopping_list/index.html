@@ -10,7 +10,7 @@
   
   <link rel="stylesheet" href="css/foundation.css" />
   <link rel="stylesheet" type="text/css" href="css/screen.css">
-
+   <!-- <script type="text/javascript" src='js/db.js'></script> -->
 </head>
 <body>
 
@@ -22,11 +22,12 @@
 
 	<section class='row' id='add-new-item'>
 		<form class='columns panel large-5 large-centered' id='new-item-form'>
-			<input type='text' class='large-10' id='title-new' placeholder='Title'>
-			<textarea class='large-10'  id='notes-new' placeholder='Notes'></textarea>
+			<textarea class='large-10 title-input' id='title-new' placeholder='Title'></textarea>
+			<!-- <input type='text' class='large-10' id='title-new' placeholder='Title' maxlength="10"> -->
+			<textarea class='large-10 notes-input'  id='notes-new' placeholder='Notes'></textarea>
 			<!-- <input type='textarea' class='large-10'  id='notes-new' placeholder='Notes'>
 			 -->
-			 <div  id='add-new-button'>Add new list item</div>
+			 <div data-tip='test' id='add-new-button'>Add new list item</div>
 		</form>
 	</section>
 

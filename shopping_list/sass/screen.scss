@@ -23,11 +23,8 @@
 	
 }
 
-#new-item-form{
-	input{
-		margin-top: 1em;	
-	}
-}
+
+
 
 #list-section1 {
 	margin-top: 2em;
@@ -45,20 +42,20 @@
 
 //--item styles--
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  color: #000;
+  color: #777;
 }
 input:-moz-placeholder, textarea:-moz-placeholder  {
-  color: #000;
+  color: #777;
 }
 input::-moz-placeholder , textarea::-moz-placeholder {
-  color: #000;
+  color: #777;
 }
 input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-  color: #000;
+  color: #777;
 }
 
 $box-shadow-color: #000;
-input, #add-new-button, textarea  {
+textarea, #add-new-button  {
 	width: 80%;
   	margin-bottom: 1em;
   	font-size: 1em;
@@ -82,10 +79,12 @@ input, #add-new-button, textarea  {
 		@include box-shadow(2px 2px 1px 1px $box-shadow-color,3px 3px 1px 1px lighten($box-shadow-color,10%));
 	}
 }
-textarea {
+.notes-input {
 	height: 8em;
 	resize: none;
 }
+
+
 
 .item {
 	position: inherit;
@@ -95,6 +94,9 @@ textarea {
 	cursor: pointer;
 	@include transition(height 1s ease-in-out);
   	overflow-y: hidden;
+  	clip: rect(0px,auto,auto,-10px);
+  	//overflow-x: auto;
+  	//width: 10em;
   input, textarea {
   	width: 80%;
   	margin-bottom: 1em;
@@ -109,13 +111,15 @@ textarea {
   }
 }
 
+
+
 //date added
-#enter-date {
+.enter-date {
 	margin: 0;
 }
 
 
-svg {
+ .move-icon-container {
 	position: absolute;
 	top: .7em;
 	right: .5em;
@@ -158,4 +162,52 @@ svg {
 // #list-section1 div:last-child {
 // 	background-color: red;
 // }
+.title-input{
+		height: 30px;
+		min-height: 0;
+		resize: none;
+	}
+
+#new-item-form{
+	.title-input{
+		margin-top: 1em;	
+	}
+}
+
+p {
+	position: relative;
+}
+
+//tooltip
+.move-icon-container:after {
+    content: attr(data-tip) ;
+    //font-size: 10px;
+    position:absolute;
+    //z-index: 999;
+    //white-space:nowrap;
+    //bottom:9999px;
+    //overflow: visible;
+    top: 0;
+    left: -140px;
+    background:#000;
+    color:#e0e0e0;
+    padding:0px 7px;
+    white-space: nowrap;
+    //line-height: 24px;
+    //height: 24px;
+    //opacity: 0;
+    //transition:opacity 0.4s ease-out;
+    visibility: hidden;
+    }
+.move-icon-container:hover:after {
+	visibility: visible;
+	webkit-transition: visibility 0s linear .3s;  
+  -moz-transition: visibility 0s linear .3s;  
+  -o-transition: visibility 0s linear .3s;  
+  transition: visibility 0s linear .3s; 
+  //overflow: visible;
+    //opacity: 1;
+    //bottom:-35px;
+    }
+
 

@@ -1,3 +1,119 @@
+var shopList = {};
+
+shopList.webdb = {};
+shopList.webdb.db = null;
+
+shopList.webdb.open = function() {
+  var dbSize = 5 * 1024 * 1024; // 5MB
+  shopList.webdb.db = openDatabase("shopList", "1.0", "shopList manager", dbSize);
+};
+
+shopList.webdb.createTable = function() {
+  var db = shopList.webdb.db;
+  db.transaction(function(tx) {
+    tx.executeSql("CREATE TABLE IF NOT EXISTS shopList(ID INTEGER PRIMARY KEY ASC, title TEXT, notes TEXT, added_on DATETIME, checked INTEGER)", []);
+  });
+}
+
+shopList.webdb.addshopList = function(title,notes,addedOn) {
+  var db = shopList.webdb.db;
+  var checked = 0;
+  db.transaction(function(tx){
+    tx.executeSql("INSERT INTO shopList(title, notes, added_on,checked) VALUES (?,?,?,?)",
+        [title, notes, addedOn, checked]);
+   });
+}
+
+shopList.webdb.onError = function(tx, e) {
+  alert("There has been an error: " + e.message);
+}
+
+shopList.webdb.onSuccess = function(tx, r) {
+  // re-render the data.
+  shopList.webdb.getAllshopListItems(loadshopListItems);
+}
+
+
+shopList.webdb.getAllshopListItems = function(renderFunc) {
+  var db = shopList.webdb.db;
+  db.transaction(function(tx) {
+    tx.executeSql("SELECT * FROM shopList", [], renderFunc,
+        shopList.webdb.onError);
+  });
+}
+
+shopList.webdb.deleteshopList = function(title,notes,date) {
+  var db = shopList.webdb.db;
+  db.transaction(function(tx){
+    tx.executeSql("DELETE FROM shopList WHERE title=? AND notes=? AND added_on=?", [title,notes,date]);
+    });
+}
+
+shopList.webdb.updateChecked = function(title,notes,date,checked,new_date) {
+  var db= shopList.webdb.db;
+  db.transaction(function(tx){
+    tx.executeSql("UPDATE shopList SET added_on=?,checked=? WHERE title=? AND notes=? AND added_on=?", [new_date,checked,title,notes,date]);
+  });
+}
+
+shopList.webdb.updateInputOnType = function(title,notes,date,field_to_update,new_update,new_date) {
+  var db=shopList.webdb.db;
+  db.transaction(function(tx){
+    console.log('title='+ title+' notes='+notes+' date='+date+' fieldtoupdate='+field_to_update+' newupdate='+new_update);
+    tx.executeSql("UPDATE shopList SET added_on=?, "+field_to_update+"=? WHERE title=? AND notes=? AND added_on=?", [new_date,new_update,title,notes,date]);
+  });
+}
+
+//output query to var
+function outputQueryResults(tx,rs){
+  var rowOutput = [];
+  console.log('in outputFunc');
+  console.log(rs.rows.item(0).count);
+  for (var i =0; i < rs.rows.length;i++){
+    rowOutput.push(rs.rows.item(i).count);
+  }
+  // =  rowOutput;
+}
+
+//edit this
+function loadshopListItems(tx, rs) {
+  var rowOutput = "";
+  var shopListItems = document.getElementById("list-section1");
+  for (var i=0; i < rs.rows.length; i++) {
+    rowOutput += rendershopList(rs.rows.item(i));
+  }
+
+  shopListItems.innerHTML = rowOutput;
+}
+
+//edit this
+function rendershopList(row) {
+  var is_checked;
+  if (row.checked === 1){
+    is_checked = 'item-completed';
+  } else  is_checked = '';
+  // return "<li>" + row.shopList  + " [<a href='javascript:void(0);'  onclick='shopList.webdb.deleteshopList(" + row.ID +");'>Delete</a>]</li>";
+
+  return "<div class='panel item large-12 large-centered columns'>" +"<textarea placeholder='Title' class='title-input "+ is_checked +"'>"+ row.title+ "</textarea><br /><textarea placeholder='Notes' class=' notes-input "+ is_checked +"'>"+row.notes+"</textarea><p class=' enter-date'>"+ row.added_on+"</p><?xml version='1.0' encoding='utf-8'?> <!-- Generator: IcoMoon.io --> <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>"+"<div class='check-icon'><img src='img/checkmark.png'></div>"+"<div data-tip='Drag Me!' class='close-icon'><img src='img/close.png'></div>"+"<div data-tip='Drag Me!' class='move-icon-container'><svg class='move-icon' data-tip='Drag Me!' width='20' height='20' viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' fill='#000000'><path d='M 32.00,96.00L 480.00,96.00L 480.00,192.00L 32.00,192.00zM 32.00,224.00L 480.00,224.00L 480.00,320.00L 32.00,320.00zM 32.00,352.00L 480.00,352.00L 480.00,448.00L 32.00,448.00z' ></path></svg>"+"</div></div>";
+}
+
+function init() {
+  shopList.webdb.open();
+  shopList.webdb.createTable();
+  shopList.webdb.getAllshopListItems(loadshopListItems);
+}
+
+//edit this
+// function addshopList() {
+//   var shopList = document.getElementById("shopList");
+//   shopList.webdb.addshopList(shopList.value);
+//   shopList.value = "";
+// }​
+
+$(document).ready(function() {
+	init();
+});
+
 //prevent html/javascript injection
 function escapeHtml(text) {
   return text
@@ -8,9 +124,6 @@ function escapeHtml(text) {
       .replace(/'/g, "&#039;");
 }
 
-//set maxlength of title input based on input width
-var title_width = $('input[type=text]').width();
-console.log(title_width);
 
 
 
@@ -18,12 +131,13 @@ console.log(title_width);
 $('#list-section1').on('click','div', function(e) {
 	var $target = $(e.target);
 	//console.log(e.target.nodeName);
-	if ($target.is('img'))
+	if ($target.is('img')||($target.is('textarea') && $target.attr('placeholder') == 'Notes')||$target.is('textarea') && $target.attr('placeholder') == 'Title' && $(this).hasClass('expand-list'))
 		{return;}
-	console.log('clicked');
+	//console.log('clicked');
 	//$('.expand-list').removeClass('expand-list');
 	//$(this).addClass('expand-list');
 	$(this).toggleClass('expand-list');
+  // $(this).children('.enter-date, .notes-input').toggleClass('visible');
 	//$('.expand-list').toggleClass('expand-list')
 	//if ()
 	//	$(this).toggleClass('expand-list');
@@ -31,24 +145,34 @@ $('#list-section1').on('click','div', function(e) {
 
 //date-added
 function add_new_item() {
-	var date_added = new Date();
+  var date_added = new Date();
+
 
 //new item
-var new_item_start = "<div class='panel item large-12 large-centered columns '>" +"<input type='text' placeholder='Title' ";
-var new_item_notes ="><br /><textarea placeholder='Notes'>";
-var new_item_last = "</textarea><p id='enter-date'>"+ date_added+"</p><?xml version='1.0' encoding='utf-8'?> <!-- Generator: IcoMoon.io --> <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>"+"<div class='check-icon'><img src='img/checkmark.png'></div>"+"<div class='close-icon'><img src='img/close.png'></div>"+"<svg class='move-icon' width='20' height='20' viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' fill='#000000'><path d='M 32.00,96.00L 480.00,96.00L 480.00,192.00L 32.00,192.00zM 32.00,224.00L 480.00,224.00L 480.00,320.00L 32.00,320.00zM 32.00,352.00L 480.00,352.00L 480.00,448.00L 32.00,448.00z' ></path></svg>"+"</div>";
+var new_item_start = "<div class='panel item large-12 large-centered columns ' data-id=''>" +"<textarea placeholder='Title' class='title-input'>"
+
+// "<input type='text' placeholder='Title' "
+;
+var new_item_notes ="</textarea><br /><textarea placeholder='Notes' class=' notes-input'>";
+var new_item_last = "</textarea><p class=' enter-date'>"+ date_added+"</p><?xml version='1.0' encoding='utf-8'?> <!-- Generator: IcoMoon.io --> <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>"+"<div class='check-icon'><img src='img/checkmark.png'></div>"+"<div data-tip='Drag Me!' class='close-icon'><img src='img/close.png'></div>"+"<div class='move-icon-container' data-tip='Drag Me!'><svg class='move-icon' data-tip='Drag Me!' width='20' height='20' viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' fill='#000000'><path d='M 32.00,96.00L 480.00,96.00L 480.00,192.00L 32.00,192.00zM 32.00,224.00L 480.00,224.00L 480.00,320.00L 32.00,320.00zM 32.00,352.00L 480.00,352.00L 480.00,448.00L 32.00,448.00z' ></path></svg></div>"+"</div>";
 	var title_val = escapeHtml($(':nth-child(1)',$('#new-item-form')).val());
 	var notes_val = escapeHtml($(':nth-child(2)',$('#new-item-form')).val());
 	console.log('title: '+title_val+ ' notes: '+notes_val);
-	$('#list-section1').append(new_item_start + "value='" +title_val + "'" + new_item_notes +  notes_val + new_item_last);
+	$('#list-section1').append(new_item_start +
+		 // + "value='" +title_val + "'" 
+		title_val+ new_item_notes +  notes_val + new_item_last);
 	$(':nth-child(1)',$('#new-item-form')).val('');
 	$(':nth-child(2)',$('#new-item-form')).val('');
+	shopList.webdb.addshopList(title_val,notes_val,date_added);
 
 
 }
+
 //add new item on click and return
 $('#add-new-button').on('click', function() {
-	add_new_item();
+  
+  add_new_item();
+
 });
 
 $('#add-new-item').submit(function(){
@@ -59,20 +183,51 @@ $('#add-new-item').submit(function(){
 //uses jquery ui to move added list items
 $('#list-section1').sortable({ axis: 'y', handle: ".move-icon" });
 
-//Mark item as complete
-$('#list-section1').on('click', '.check-icon', function() {
-	console.log('close-iconclicked');
-	$(this).closest('.item').children('input, textarea').toggleClass('item-completed'); 
-	// console.log(par);
-});
 
 //delete item
 $('#list-section1').on('click', '.close-icon', function() {
-	$(this).closest('.item').remove();
+  var title= $(':nth-child(1)', $(this).closest('.item')).val();
+  var notes= $(':nth-child(3)', $(this).closest('.item')).val(); 
+  var date=  $(':nth-child(4)', $(this).closest('.item')).text();
+ shopList.webdb.deleteshopList(title,notes,date);
+ $(this).closest('.item').remove();
 });
 
-//old svg stuff
 
-// "<svg id='close-icon' width='16' height='16' viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' fill='#000000'><path d='M 507.331,411.33c-0.002-0.002-0.004-0.004-0.006-0.005L 352.003,256.00l 155.322-155.325c 0.002-0.002, 0.004-0.003, 0.006-0.005 c 1.672-1.673, 2.881-3.627, 3.656-5.708c 2.123-5.688, 0.912-12.341-3.662-16.915L 433.952,4.674c-4.574-4.573-11.225-5.783-16.914-3.66 c-2.08,0.775-4.035,1.984-5.709,3.655c0.00,0.002-0.002,0.003-0.004,0.005L 256.001,160.00L 100.677,4.675 c-0.002-0.002-0.003-0.003-0.005-0.005c-1.673-1.671-3.627-2.88-5.707-3.655c-5.69-2.124-12.341-0.913-16.915,3.66L 4.676,78.049 c-4.574,4.574-5.784,11.226-3.661,16.914c 0.776,2.08, 1.985,4.036, 3.656,5.708c 0.002,0.001, 0.003,0.003, 0.005,0.005L 160.001,256.00 L 4.676,411.326c-0.001,0.002-0.003,0.003-0.004,0.005c-1.671,1.673-2.88,3.627-3.657,5.707c-2.124,5.688-0.913,12.341, 3.661,16.915 l 73.374,73.373c 4.575,4.574, 11.226,5.784, 16.915,3.661c 2.08-0.776, 4.035-1.985, 5.708-3.656c 0.001-0.002, 0.003-0.003, 0.005-0.005 l 155.324-155.325l 155.324,155.325c 0.002,0.001, 0.004,0.003, 0.006,0.004c 1.674,1.672, 3.627,2.881, 5.707,3.657 c 5.689,2.123, 12.342,0.913, 16.914-3.661l 73.373-73.374c 4.574-4.574, 5.785-11.227, 3.662-16.915 C 510.212,414.957, 509.003,413.003, 507.331,411.33z' ></path></svg>""<svg id='check-icon' width='20' height='20' viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' fill='#000000'><path d='M 432.00,64.00L 192.00,304.00L 80.00,192.00L0.00,272.00L 192.00,464.00L 512.00,144.00 z' ></path></svg>"
+//global vals set on focus in
+var toUpdateTitle;
+var toUpdateNotes;
+var toUpdateDate;
+$('#list-section1').on('focusin', 'textarea', function (){
+  //console.log($(this));
+  toUpdateTitle= $(':nth-child(1)', $(this).closest('.item')).val();
+  toUpdateNotes= $(':nth-child(3)', $(this).closest('.item')).val();
+  toUpdateDate=  $(':nth-child(4)', $(this).closest('.item')).text();
+});
+
+//Mark item as complete
+$('#list-section1').on('click', '.check-icon', function() {
+  var new_date = new Date();
+  var title= $(':nth-child(1)', $(this).closest('.item')).val();
+  var notes= $(':nth-child(3)', $(this).closest('.item')).val(); 
+  var date=  $(':nth-child(4)', $(this).closest('.item')).text();
+  $(this).closest('.item').children('input, textarea').toggleClass('item-completed'); 
+  // console.log(par);
+  if ($(this).closest('.item').children('input, textarea').hasClass('item-completed')) {
+      shopList.webdb.updateChecked(title,notes,date,1,new_date);
+      $(':nth-child(4)', $(this).closest('.item')).text(new_date);
+  } else {
+    shopList.webdb.updateChecked(title,notes,date,0,new_date);
+    $(':nth-child(4)', $(this).closest('.item')).text(new_date);
+  }
+});
 
 
+//update input to openDatabase
+$('#list-section1').on('focusout','textarea', function (){
+  var new_date = new Date();
+  $(':nth-child(4)', $(this).closest('.item')).text(new_date);
+  var toUpdate = $(this).val();
+  var areaName = $(this).attr('placeholder').toLowerCase();
+  shopList.webdb.updateInputOnType(toUpdateTitle,toUpdateNotes,toUpdateDate,areaName,toUpdate,new_date);
+});
