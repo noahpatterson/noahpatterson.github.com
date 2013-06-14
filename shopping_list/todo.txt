@@ -3,3 +3,4 @@
 -only update date-time when something actually changes
 -better use of ID's
 -remember ordering
+-fix for mobile devices
