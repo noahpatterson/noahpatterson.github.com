@@ -143,6 +143,7 @@ $('#list-section1').on('click','div', function(e) {
 	//	$(this).toggleClass('expand-list');
 });
 
+
 //date-added
 function add_new_item() {
   var date_added = new Date();
