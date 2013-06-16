@@ -1,27 +1,57 @@
 
+//goggle analytics
+function googleAnalyticsBuild(category, action, opt_label, opt_value, opt_noninteraction) {
+	return _gaq.push(['_trackEvent', category, action, opt_label, opt_value, opt_noninteraction]);
+}
+
+function trackOutboundLink(link, category, action) { 
+try { 
+_gaq.push(['_trackEvent', category , action]); 
+} catch(err){}
+
+
+}
+
+//_gaq.push(['_trackEvent', 'Videos', 'Play', 'Baby\'s First Birthday']);
+
 //toggle form function
  function toggle_form(contact_drop) {
 	contact_drop.find('form').slideToggle('slow').toggleClass('contact-form-visible');
+	if (contact_drop.find('form').hasClass('contact-form-visible')) {
+		googleAnalyticsBuild('Contact','contact_reveal','Opened the contact form');
+	}
 
 }
+
+//track blog click
+$('#blog').click(function(e){
+
+	trackOutboundLink(this,'Outbound Link', 'blog.albinosquirrel.com');
+
+	if ( $(this).attr('target') === undefined || $(this).attr('target').toLowerCase() != '_blank') {
+			setTimeout(function() {
+			document.location.href = link.href;
+			}, 100);
+			return false;
+		}
+});
 
 //reveals project description
 $('#project-move').on('click', function() {
 	$(this).toggleClass('project-move-slide');
 	// $(this).css({'height': '25em'});
+	if ($(this).hasClass('project-move-slide')) {
+		googleAnalyticsBuild('Project','description_reveal','Viewed a description of a project');
+	}
 });
-// $('.project-description').on('click', function() {
-// 	$('#project-move').addClass('project-move-slide');
-// });
 
 //toggles project move on click anywhere
 $('html').click(function(){
 	if ($('#project-move').hasClass('project-move-slide')) {
 		$('#project-move').removeClass('project-move-slide');
 	}
-	//toggle off contact form
-	
 });
+
 $('html').click(function(){
 
 	if ($('#contact-drop').find('form').hasClass('contact-form-visible')){
@@ -64,6 +94,8 @@ $('#submit-button').on('click', function(){
 
 	var contact_drop = $(this).closest('#contact-drop');
 	toggle_form(contact_drop);
+	googleAnalyticsBuild('Contact','contact_submit','Submitted a contact form');
+
 
 	});
 //also opens contact form
@@ -125,26 +157,10 @@ $(window).scroll(function() {
     $('#about-scroll').removeClass('highlight');
     $('#portfolio-scroll').addClass('highlight');
     
-  } else if (scr_top >= regions[1] && !$('#about-scroll').hasClass('highlight') ){
-  	    console.log(scr_top+' about');
+  } else if (scr_top >= regions[1] && !$('#about-scroll').hasClass('highlight') ) {
+ 	    console.log(scr_top+' about');
 
     $('#portfolio-scroll').removeClass('highlight');
-    // $('#third').removeClass('highlight',1000);
     $('#about-scroll').addClass('highlight');
-  } 
-//   else if (scr_top >= regions[2] & scr_top < regions[3] & !$('#third').hasClass('highlight')){
-//     $('#fourth').removeClass('highlight',1000);
-//     $('#second').removeClass('highlight',1000);
-//     $('#third').addClass('highlight',1000);
-// } else if (scr_top >= regions[3] & !$('#fourth').hasClass('highlight')){
-//     $('#third').removeClass('highlight',1000);
-//     $('#fourth').addClass('highlight',1000);
-//    } 
+  }
 });
-
-//$(`'#bar1').append(sections[0].offset().top);
-//alert(sections.offset().top);
-
-
-
-
